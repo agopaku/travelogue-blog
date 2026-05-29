@@ -517,9 +517,9 @@ function setupMapInteraction() {
       
       // 3. Mousemove tracking to keep tooltip aligned to cursor
       path.addEventListener('mousemove', (e) => {
-        // Offset tooltip from cursor
-        tooltip.style.left = `${e.clientX + 15}px`;
-        tooltip.style.top = `${e.clientY + 15}px`;
+        // Center the tooltip horizontally and offset vertically below the cursor
+        tooltip.style.left = `${e.clientX}px`;
+        tooltip.style.top = `${e.clientY + 20}px`;
       });
       
       // 4. Mouseout Trigger

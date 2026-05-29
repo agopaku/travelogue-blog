@@ -907,7 +907,8 @@ html {
 
 /* Map Tooltip */
 .map-tooltip {
-  position: absolute;
+  position: fixed;
+  transform: translateX(-50%);
   background: rgba(18, 20, 28, 0.95);
   border: 1px solid var(--accent);
   color: #FFF;
