@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anil's Travelogue | The Wanderer's Journal</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore travelogues, motorcycle adventures, road trips, and reflections. Follow the journey from the rain forests of Agumbe to the lighthouses of Michigan and coastal roads of Rameswaram.">
+  <meta name="author" content="Anil Gopakumar">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+          <line x1="9" y1="3" x2="9" y2="18"></line>
+          <line x1="15" y1="6" x2="15" y2="21"></line>
+        </svg>
+        <span>WANDERER'S LOG</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="#journal" class="nav-link">Journal</a>
+        <a href="#timeline" class="nav-link">Timeline</a>
+        <a href="#subscribe" class="nav-link highlight">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg" style="background-image: linear-gradient(180deg, rgba(11, 12, 16, 0.4) 0%, rgba(11, 12, 16, 0.95) 100%), url('images/hero.png');"></div>
+    <div class="hero-content">
+      <div class="hero-badge">THE JOURNEY REBOUND</div>
+      <h1 class="hero-title">Bringing Back The Stories of the Road</h1>
+      <p class="hero-subtitle">Chronicles of open roads, coastal rides, and spiritual paths traveled years back, re-imagined for today.</p>
+      <a href="#journal" class="hero-btn">
+        <span>Explore the Journal</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Interactive Timeline Section -->
+  <section id="timeline" class="section timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Travel Highlights Timeline</h2>
+        <p class="section-subtitle">Follow the path of major expeditions and stories across countries and coordinates.</p>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Connecting Line background -->
+        <div class="timeline-line"></div>
+
+        <!-- Timeline Node 1: Michigan -->
+        <div class="timeline-node" data-tag="Michigan" onclick="filterByTimelineTag('Michigan')">
+          <div class="node-dot"></div>
+          <div class="node-card">
+            <span class="node-meta">USA Travels</span>
+            <h3 class="node-title">Michigan Coastline</h3>
+            <p class="node-desc">Getting lost on unpaved logging roads in Free Soil and skipping stones under the Betsie Point Lighthouse.</p>
+            <span class="node-link">Filter articles &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Timeline Node 2: North India -->
+        <div class="timeline-node" data-tag="India" onclick="filterByTimelineTag('India')">
+          <div class="node-dot"></div>
+          <div class="node-card">
+            <span class="node-meta">Spiritual Path</span>
+            <h3 class="node-title">Varanasi & Bodh Gaya</h3>
+            <p class="node-desc">Exploring the ancient, spiritual ghats of Varanasi and finding serene enlightenment in historic Bodh Gaya.</p>
+            <span class="node-link">Filter articles &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Timeline Node 3: Agumbe Ride -->
+        <div class="timeline-node" data-tag="Agumbe" onclick="filterByTimelineTag('Agumbe')">
+          <div class="node-dot"></div>
+          <div class="node-card">
+            <span class="node-meta">Motorcycle Ride</span>
+            <h3 class="node-title">Agumbe Rain Forest</h3>
+            <p class="node-desc">Tackling the famous hairpin bends and rain-soaked ghats of Agumbe on a multi-day motorcycle ride.</p>
+            <span class="node-link">Filter articles &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Timeline Node 4: Kerala -->
+        <div class="timeline-node" data-tag="Kerala" onclick="filterByTimelineTag('Kerala')">
+          <div class="node-dot"></div>
+          <div class="node-card">
+            <span class="node-meta">Exotic Nature</span>
+            <h3 class="node-title">Exotic Kerala</h3>
+            <p class="node-desc">Riding through the backwater canals, lush spice gardens, and beautiful tropical coastlines of Kerala.</p>
+            <span class="node-link">Filter articles &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Timeline Node 5: Freedom Ride -->
+        <div class="timeline-node" data-tag="Freedom Ride" onclick="filterByTimelineTag('Freedom')">
+          <div class="node-dot"></div>
+          <div class="node-card">
+            <span class="node-meta">Motorcycle Ride</span>
+            <h3 class="node-title">Freedom Ride</h3>
+            <p class="node-desc">A major highway sprint along the East Coast Road to Rameswaram, Tuticorin, and sleeping on milestone benches at 3 AM.</p>
+            <span class="node-link">Filter articles &rarr;</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Journal Section -->
+  <section id="journal" class="section journal-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">The Journal</h2>
+        <p class="section-subtitle">Synced directly from my Substack newsletter feed.</p>
+      </div>
+
+      <!-- Controls & Search -->
+      <div class="journal-controls">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search stories, locations, keyword..." oninput="handleSearch()">
+        </div>
+        
+        <div class="category-tabs">
+          <button class="category-tab active" data-filter="all" onclick="filterCategory('all')">All Stories</button>
+          <button class="category-tab" data-filter="motorcycle" onclick="filterCategory('motorcycle')">Motorcycle Rides</button>
+          <button class="category-tab" data-filter="india" onclick="filterCategory('india')">India</button>
+          <button class="category-tab" data-filter="usa" onclick="filterCategory('usa')">USA & Travels</button>
+        </div>
+      </div>
+
+      <!-- Grid Loading Indicator -->
+      <div id="blogGrid" class="blog-grid">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Fetching logs from Substack...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section id="subscribe" class="section subscribe-section">
+    <div class="container">
+      <div class="subscribe-card">
+        <div class="subscribe-badge">SUBSCRIBE</div>
+        <h2 class="subscribe-title">Follow the Open Road</h2>
+        <p class="subscribe-desc">Sign up to receive travel logs, motorcycle ride route summaries, and personal reflections straight to your inbox. No spam, just pure wanderlust.</p>
+        
+        <div class="subscribe-form">
+          <input type="email" id="subscribeEmail" placeholder="Enter your email address" aria-label="Email address">
+          <button onclick="handleSubscribe()" class="subscribe-btn">Subscribe</button>
+        </div>
+        
+        <div class="subscribe-footer">
+          <span>Read past archives directly on <a href="https://anilgopakumar.substack.com" target="_blank" rel="noopener">anilgopakumar.substack.com</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="footer-copyright">&copy; 2026 Anil Gopakumar. All travel logs and writings reserved.</p>
+      <div class="footer-social">
+        <a href="https://anilgopakumar.substack.com" target="_blank" rel="noopener" class="footer-social-link">Substack</a>
+        <a href="#" class="footer-social-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Logic Script -->
+  <script src="app.js"></script>
+</body>
+</html>
