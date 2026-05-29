@@ -14,6 +14,7 @@ const RSS2JSON_API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURICo
 // Visited States Configuration (49 States Visited, 1 State 'AK' as Explore placeholder)
 // Paste your Google Photos Shared Album links into albumUrl to link them directly to the map!
 const travelHistory = {
+  // USA States
   "AL": { name: "Alabama", visited: true, visits: [{ year: "2019", note: "Riding through the heart of the South, exploring historic routes.", albumUrl: "" }] },
   "AK": { name: "Alaska", visited: false, visits: [] },
   "AZ": { name: "Arizona", visited: true, visits: [{ year: "2020", note: "Cruising the desert highways and canyons under dramatic skies.", albumUrl: "" }] },
@@ -64,15 +65,52 @@ const travelHistory = {
   "WV": { name: "West Virginia", visited: true, visits: [{ year: "2019", note: "Carving the tight, challenging curves of the Appalachian mountains.", albumUrl: "" }] },
   "WI": { name: "Wisconsin", visited: true, visits: [{ year: "2018", note: "Exploring the quiet, scenic roads along the Door County Peninsula.", albumUrl: "" }] },
   "WY": { name: "Wyoming", visited: true, visits: [{ year: "2021", note: "Grand Teton passes, Yellowstone hot springs, and high plains.", albumUrl: "" }] },
-  "DC": { name: "Washington D.C.", visited: true, visits: [{ year: "2022", note: "Riding around the historic national malls and monument circles.", albumUrl: "" }] }
+  "DC": { name: "Washington D.C.", visited: true, visits: [{ year: "2022", note: "Riding around the historic national malls and monument circles.", albumUrl: "" }] },
+
+  // India States & Union Territories
+  "an": { name: "Andaman and Nicobar Islands", visited: false, visits: [] },
+  "ap": { name: "Andhra Pradesh", visited: false, visits: [] },
+  "ar": { name: "Arunachal Pradesh", visited: false, visits: [] },
+  "as": { name: "Assam", visited: false, visits: [] },
+  "br": { name: "Bihar", visited: true, visits: [{ year: "2016", note: "Finding serene enlightenment under the Bodhi tree in Bodh Gaya.", albumUrl: "" }] },
+  "ch": { name: "Chandigarh", visited: false, visits: [] },
+  "ct": { name: "Chhattisgarh", visited: false, visits: [] },
+  "dn": { name: "Dadra and Nagar Haveli", visited: false, visits: [] },
+  "dd": { name: "Daman and Diu", visited: false, visits: [] },
+  "dl": { name: "Delhi", visited: false, visits: [] },
+  "ga": { name: "Goa", visited: false, visits: [] },
+  "gj": { name: "Gujarat", visited: false, visits: [] },
+  "hr": { name: "Haryana", visited: false, visits: [] },
+  "hp": { name: "Himachal Pradesh", visited: false, visits: [] },
+  "jk": { name: "Jammu and Kashmir", visited: false, visits: [] },
+  "jh": { name: "Jharkhand", visited: false, visits: [] },
+  "ka": { name: "Karnataka", visited: true, visits: [{ year: "2014", note: "Riding the famous hairpin bends and rain-soaked ghats of Western India.", albumUrl: "" }] },
+  "kl": { name: "Kerala", visited: true, visits: [{ year: "2014", note: "Riding through backwaters, tea gardens, and tropical coastlines.", albumUrl: "" }] },
+  "ld": { name: "Lakshadweep", visited: false, visits: [] },
+  "mp": { name: "Madhya Pradesh", visited: false, visits: [] },
+  "mh": { name: "Maharashtra", visited: false, visits: [] },
+  "mn": { name: "Manipur", visited: false, visits: [] },
+  "ml": { name: "Meghalaya", visited: false, visits: [] },
+  "mz": { name: "Mizoram", visited: false, visits: [] },
+  "nl": { name: "Nagaland", visited: false, visits: [] },
+  "or": { name: "Odisha", visited: false, visits: [] },
+  "py": { name: "Puducherry", visited: false, visits: [] },
+  "pb": { name: "Punjab", visited: false, visits: [] },
+  "rj": { name: "Rajasthan", visited: false, visits: [] },
+  "sk": { name: "Sikkim", visited: false, visits: [] },
+  "tn": { name: "Tamil Nadu", visited: true, visits: [{ year: "2014", note: "ECR coastal sprint to Rama Sethu, sleeping on milestone benches at 3 AM.", albumUrl: "" }] },
+  "tg": { name: "Telangana", visited: false, visits: [] },
+  "tr": { name: "Tripura", visited: false, visits: [] },
+  "up": { name: "Uttar Pradesh", visited: true, visits: [{ year: "2016", note: "Exploring the spiritual ghats of Varanasi along the Ganges.", albumUrl: "" }] },
+  "ut": { name: "Uttarakhand", visited: false, visits: [] },
+  "wb": { name: "West Bengal", visited: false, visits: [] }
 };
 
-// Custom Travel Journeys (India, historic runs, etc.) to merge into the main timeline
-const customTrips = [
-  { name: "Freedom Ride", location: "Rameswaram & Tuticorin, India", year: "2014", note: "ECR coastal sprint to Rama Sethu, sleeping on milestone benches at 3 AM.", tag: "Freedom" },
-  { name: "Agumbe Rain Forest", location: "Agumbe, India", year: "2014", note: "Riding the famous hairpin bends and rain-soaked ghats of Western India.", tag: "Agumbe" },
-  { name: "Exotic Kerala", location: "Kerala, India", year: "2014", note: "Riding through backwaters, tea gardens, and tropical coastlines.", tag: "Kerala" },
-  { name: "Varanasi & Bodh Gaya", location: "Varanasi, India", year: "2016", note: "Exploring the spiritual ghats and finding serene enlightenment in Bodh Gaya.", tag: "India" }
+// International Trips (Singapore, China, Malaysia) to merge into the main timeline
+const internationalTrips = [
+  { name: "Singapore", location: "Singapore", year: 1997, yearStr: "1997", note: "First international trip, exploring Singapore's vibrant cityscapes.", tag: "Singapore" },
+  { name: "China", location: "China", year: 2011, yearStr: "2011", note: "Exploring historic landmarks and modern wonders across China.", tag: "China" },
+  { name: "Malaysia", location: "Malaysia", year: 2015, yearStr: "Post-2013", note: "Exploring Malaysia's cultural highlights and cities.", tag: "Malaysia" }
 ];
 
 // Initialize Application on Page Load
@@ -215,7 +253,7 @@ function renderArticles() {
       ? `<img src="${item.imageUrl}" class="blog-img" alt="${item.title}" loading="lazy">`
       : `<div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background: linear-gradient(135deg, #161A26 0%, #0D0E12 100%); color: var(--accent); gap: 10px;">
            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon></svg>
-           <span style="font-size:0.75rem; font-weight:700; letter-spacing: 0.1em; text-transform: uppercase;">Wanderer's Log</span>
+           <span style="font-size:0.75rem; font-weight:700; letter-spacing: 0.1em; text-transform: uppercase;">Echoes of a Wayfarer</span>
          </div>`;
          
     const card = document.createElement('article');
@@ -441,57 +479,62 @@ function runObserverCheck() {
   });
 }
 
-// 14. Interactive USA Map Hook & State Configuration Load
+// 14. Interactive USA & India Maps Hook & State Configuration Load
 function setupMapInteraction() {
-  const mapSvg = document.getElementById('us-map');
+  const mapIds = ['us-map', 'india-map'];
   const tooltip = document.getElementById('map-tooltip');
   
-  if (!mapSvg || !tooltip) return;
-  
-  // Find all state path elements in the SVG
-  const statePaths = mapSvg.querySelectorAll('.state-path');
-  
-  statePaths.forEach(path => {
-    const stateId = path.getAttribute('id');
-    const info = travelHistory[stateId];
+  if (!tooltip) return;
+
+  mapIds.forEach(mapId => {
+    const mapSvg = document.getElementById(mapId);
+    if (!mapSvg) return;
     
-    // 1. Label and apply 'visited' class styles to the paths
-    if (info && info.visited) {
-      path.classList.add('visited');
-    }
+    // Find all state path elements in the SVG
+    const statePaths = mapSvg.querySelectorAll('.state-path');
     
-    // 2. Mouseover Tooltip Trigger
-    path.addEventListener('mouseover', (e) => {
-      if (info) {
-        let visitText = 'To Explore';
-        if (info.visited && info.visits && info.visits.length > 0) {
-          const years = info.visits.map(v => v.year).join(', ');
-          visitText = `Visited (${years})`;
-        }
-        tooltip.innerHTML = `<strong>${info.name}</strong><br>${visitText}`;
-        tooltip.style.opacity = '1';
-      }
-    });
-    
-    // 3. Mousemove tracking to keep tooltip aligned to cursor
-    path.addEventListener('mousemove', (e) => {
-      // Offset tooltip from cursor
-      tooltip.style.left = `${e.clientX + 15}px`;
-      tooltip.style.top = `${e.clientY + 15}px`;
-    });
-    
-    // 4. Mouseout Trigger
-    path.addEventListener('mouseout', () => {
-      tooltip.style.opacity = '0';
-    });
-    
-    // 5. Click event to open State Detail Modal
-    path.addEventListener('click', () => {
+    statePaths.forEach(path => {
+      const stateId = path.getAttribute('id');
+      const info = travelHistory[stateId];
+      
+      // 1. Label and apply 'visited' class styles to the paths
       if (info && info.visited) {
-        openStateModal(stateId);
-      } else if (info) {
-        alert(`${info.name} is on my bucket list to explore on a future ride!`);
+        path.classList.add('visited');
       }
+      
+      // 2. Mouseover Tooltip Trigger
+      path.addEventListener('mouseover', (e) => {
+        if (info) {
+          let visitText = 'To Explore';
+          if (info.visited && info.visits && info.visits.length > 0) {
+            const years = info.visits.map(v => v.year).join(', ');
+            visitText = `Visited (${years})`;
+          }
+          tooltip.innerHTML = `<strong>${info.name}</strong><br>${visitText}`;
+          tooltip.style.opacity = '1';
+        }
+      });
+      
+      // 3. Mousemove tracking to keep tooltip aligned to cursor
+      path.addEventListener('mousemove', (e) => {
+        // Offset tooltip from cursor
+        tooltip.style.left = `${e.clientX + 15}px`;
+        tooltip.style.top = `${e.clientY + 15}px`;
+      });
+      
+      // 4. Mouseout Trigger
+      path.addEventListener('mouseout', () => {
+        tooltip.style.opacity = '0';
+      });
+      
+      // 5. Click event to open State Detail Modal
+      path.addEventListener('click', () => {
+        if (info && info.visited) {
+          openStateModal(stateId);
+        } else if (info) {
+          alert(`${info.name} is on my bucket list to explore on a future ride!`);
+        }
+      });
     });
   });
 }
@@ -588,8 +631,38 @@ function closeStateModal(event) {
   }
 }
 
-// 17. Scroll to map and open state modal
+// 17. Toggle Map View (USA vs India)
+function switchMap(mapType) {
+  // Update switcher tabs active state
+  document.querySelectorAll('.map-tab').forEach(tab => {
+    if (tab.getAttribute('data-map') === mapType) {
+      tab.classList.add('active');
+    } else {
+      tab.classList.remove('active');
+    }
+  });
+
+  // Toggle map container visibility
+  const usaWrapper = document.getElementById('map-wrapper-usa');
+  const indiaWrapper = document.getElementById('map-wrapper-india');
+  
+  if (usaWrapper && indiaWrapper) {
+    if (mapType === 'india') {
+      usaWrapper.style.display = 'none';
+      indiaWrapper.style.display = 'block';
+    } else {
+      usaWrapper.style.display = 'block';
+      indiaWrapper.style.display = 'none';
+    }
+  }
+}
+
+// 18. Scroll to map and open state modal
 function scrollToMapAndOpenModal(stateId) {
+  // Check if stateId is lowercase (India state) or uppercase (US state)
+  const isIndia = stateId === stateId.toLowerCase();
+  switchMap(isIndia ? 'india' : 'usa');
+
   const mapSection = document.getElementById('map');
   if (mapSection) {
     mapSection.scrollIntoView({ behavior: 'smooth' });
@@ -600,7 +673,7 @@ function scrollToMapAndOpenModal(stateId) {
   }
 }
 
-// 18. Generate and render Travel Highlights Timeline dynamically
+// 19. Generate and render Travel Highlights Timeline dynamically
 function renderDynamicTimeline() {
   const timelineContainer = document.getElementById('dynamicTimeline');
   if (!timelineContainer) return;
@@ -611,10 +684,11 @@ function renderDynamicTimeline() {
   
   const events = [];
   
-  // Gather US visits
+  // Gather state visits (US and India)
   Object.keys(travelHistory).forEach(stateId => {
     const info = travelHistory[stateId];
     if (info.visited && info.visits) {
+      const isIndia = stateId === stateId.toLowerCase();
       info.visits.forEach(visit => {
         events.push({
           type: 'state',
@@ -623,20 +697,20 @@ function renderDynamicTimeline() {
           year: parseInt(visit.year) || 0,
           yearStr: visit.year,
           note: visit.note,
-          tag: info.name
+          isIndia: isIndia
         });
       });
     }
   });
   
-  // Gather Custom visits
-  customTrips.forEach(trip => {
+  // Gather International visits
+  internationalTrips.forEach(trip => {
     events.push({
-      type: 'custom',
+      type: 'international',
       name: trip.name,
       location: trip.location,
       year: parseInt(trip.year) || 0,
-      yearStr: trip.year,
+      yearStr: trip.yearStr,
       note: trip.note,
       tag: trip.tag
     });
@@ -653,14 +727,12 @@ function renderDynamicTimeline() {
     let metaText = '';
     let titleText = '';
     let descText = '';
-    let clickHandler = '';
     
     if (event.type === 'state') {
-      metaText = `USA Travel • ${event.yearStr}`;
+      metaText = event.isIndia ? `${event.name}, India • ${event.yearStr}` : `USA Travel • ${event.yearStr}`;
       titleText = event.name;
       descText = event.note;
       node.setAttribute('data-state', event.stateCode);
-      // Double escaping quotes in handler
       node.addEventListener('click', () => {
         scrollToMapAndOpenModal(event.stateCode);
       });

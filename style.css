@@ -1180,3 +1180,43 @@ html {
   transform: translateY(-1px);
 }
 
+/* Map Switcher Tabs & India Map */
+.map-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.map-tab {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.map-tab:hover:not(.active) {
+  color: #FFF;
+  border-color: var(--border-hover);
+}
+
+.map-tab.active {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+  box-shadow: 0 4px 15px rgba(229, 169, 59, 0.2);
+}
+
+.india-map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
