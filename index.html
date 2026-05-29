@@ -138,11 +138,13 @@
     <div class="modal-card" onclick="event.stopPropagation()">
       <button class="modal-close-btn" onclick="closeStateModal('force')">&times;</button>
       <div class="modal-header">
-        <span id="modalStateMeta" class="modal-state-meta">Visited in 2018</span>
         <h2 id="modalStateTitle" class="modal-state-title">State Name</h2>
       </div>
       <div class="modal-body">
-        <p id="modalStateNotes" class="modal-state-notes">Travel memories and ride route captions go here.</p>
+        <!-- Scrollable list of visits -->
+        <div id="modalVisitsContainer" class="modal-visits-container">
+          <!-- Dynamically populated visit log cards -->
+        </div>
         
         <div id="modalSubstackSection" class="modal-substack-section">
           <h3>Stories from this State</h3>
@@ -150,12 +152,6 @@
             <!-- Dynamically populated links -->
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <a id="modalAlbumBtn" href="#" target="_blank" rel="noopener" class="modal-btn-album">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:6px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-          <span>View Photo Album</span>
-        </a>
       </div>
     </div>
   </div>
@@ -169,65 +165,10 @@
         <p class="section-subtitle">Follow the path of major expeditions and stories across countries and coordinates.</p>
       </div>
 
-      <div class="timeline-container">
+      <div id="dynamicTimeline" class="timeline-container">
         <!-- Connecting Line background -->
         <div class="timeline-line"></div>
-
-        <!-- Timeline Node 1: Michigan -->
-        <div class="timeline-node" data-tag="Michigan" onclick="filterByTimelineTag('Michigan')">
-          <div class="node-dot"></div>
-          <div class="node-card">
-            <span class="node-meta">USA Travels</span>
-            <h3 class="node-title">Michigan Coastline</h3>
-            <p class="node-desc">Getting lost on unpaved logging roads in Free Soil and skipping stones under the Betsie Point Lighthouse.</p>
-            <span class="node-link">Filter articles &rarr;</span>
-          </div>
-        </div>
-
-        <!-- Timeline Node 2: North India -->
-        <div class="timeline-node" data-tag="India" onclick="filterByTimelineTag('India')">
-          <div class="node-dot"></div>
-          <div class="node-card">
-            <span class="node-meta">Spiritual Path</span>
-            <h3 class="node-title">Varanasi & Bodh Gaya</h3>
-            <p class="node-desc">Exploring the ancient, spiritual ghats of Varanasi and finding serene enlightenment in historic Bodh Gaya.</p>
-            <span class="node-link">Filter articles &rarr;</span>
-          </div>
-        </div>
-
-        <!-- Timeline Node 3: Agumbe Ride -->
-        <div class="timeline-node" data-tag="Agumbe" onclick="filterByTimelineTag('Agumbe')">
-          <div class="node-dot"></div>
-          <div class="node-card">
-            <span class="node-meta">Motorcycle Ride</span>
-            <h3 class="node-title">Agumbe Rain Forest</h3>
-            <p class="node-desc">Tackling the famous hairpin bends and rain-soaked ghats of Agumbe on a multi-day motorcycle ride.</p>
-            <span class="node-link">Filter articles &rarr;</span>
-          </div>
-        </div>
-
-        <!-- Timeline Node 4: Kerala -->
-        <div class="timeline-node" data-tag="Kerala" onclick="filterByTimelineTag('Kerala')">
-          <div class="node-dot"></div>
-          <div class="node-card">
-            <span class="node-meta">Exotic Nature</span>
-            <h3 class="node-title">Exotic Kerala</h3>
-            <p class="node-desc">Riding through the backwater canals, lush spice gardens, and beautiful tropical coastlines of Kerala.</p>
-            <span class="node-link">Filter articles &rarr;</span>
-          </div>
-        </div>
-
-        <!-- Timeline Node 5: Freedom Ride -->
-        <div class="timeline-node" data-tag="Freedom Ride" onclick="filterByTimelineTag('Freedom')">
-          <div class="node-dot"></div>
-          <div class="node-card">
-            <span class="node-meta">Motorcycle Ride</span>
-            <h3 class="node-title">Freedom Ride</h3>
-            <p class="node-desc">A major highway sprint along the East Coast Road to Rameswaram, Tuticorin, and sleeping on milestone benches at 3 AM.</p>
-            <span class="node-link">Filter articles &rarr;</span>
-          </div>
-        </div>
-
+        <!-- Dynamically populated timeline nodes -->
       </div>
     </div>
   </section>

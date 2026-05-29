@@ -14,58 +14,66 @@ const RSS2JSON_API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURICo
 // Visited States Configuration (49 States Visited, 1 State 'AK' as Explore placeholder)
 // Paste your Google Photos Shared Album links into albumUrl to link them directly to the map!
 const travelHistory = {
-  "AL": { name: "Alabama", visited: true, year: "2019", note: "Riding through the heart of the South, exploring historic routes.", albumUrl: "" },
-  "AK": { name: "Alaska", visited: false, year: "", note: "One final frontier to explore on two wheels.", albumUrl: "" },
-  "AZ": { name: "Arizona", visited: true, year: "2020", note: "Cruising the desert highways and canyons under dramatic skies.", albumUrl: "" },
-  "AR": { name: "Arkansas", visited: true, year: "2019", note: "Riding the winding mountain curves of the Ozarks.", albumUrl: "" },
-  "CA": { name: "California", visited: true, year: "2021", note: "Riding the iconic twists of the Pacific Coast Highway.", albumUrl: "" },
-  "CO": { name: "Colorado", visited: true, year: "2020", note: "Tackling high-altitude mountain passes and Rockies views.", albumUrl: "" },
-  "CT": { name: "Connecticut", visited: true, year: "2022", note: "Cruising through beautiful New England historic towns.", albumUrl: "" },
-  "DE": { name: "Delaware", visited: true, year: "2022", note: "Scenic coastal rides along the Delaware Bay.", albumUrl: "" },
-  "FL": { name: "Florida", visited: true, year: "2019", note: "Cruising along the Overseas Highway through the Florida Keys.", albumUrl: "" },
-  "GA": { name: "Georgia", visited: true, year: "2019", note: "Exploring historic roads, Spanish moss, and Southern paths.", albumUrl: "" },
-  "HI": { name: "Hawaii", visited: true, year: "2023", note: "Exploring the volcanic coastlines and tropical routes of the islands.", albumUrl: "" },
-  "ID": { name: "Idaho", visited: true, year: "2021", note: "Riding through rugged river canyons and forest routes.", albumUrl: "" },
-  "IL": { name: "Illinois", visited: true, year: "2018", note: "Starting journeys along the classic Route 66 corridors.", albumUrl: "" },
-  "IN": { name: "Indiana", visited: true, year: "2018", note: "Scenic rides through Midwest farmlands and state forests.", albumUrl: "" },
-  "IA": { name: "Iowa", visited: true, year: "2018", note: "Cruising the rolling hills and crossing the Mississippi River routes.", albumUrl: "" },
-  "KS": { name: "Kansas", visited: true, year: "2020", note: "Expansive horizons and endless open skies along the plains.", albumUrl: "" },
-  "KY": { name: "Kentucky", visited: true, year: "2019", note: "Riding through beautiful horse country and rolling bluegrass hills.", albumUrl: "" },
-  "LA": { name: "Louisiana", visited: true, year: "2019", note: "Cruising bayou routes and exploring unique Cajun country roads.", albumUrl: "" },
-  "ME": { name: "Maine", visited: true, year: "2022", note: "Lighthouses, rocky shores, and Acadia coastal highways.", albumUrl: "" },
-  "MD": { name: "Maryland", visited: true, year: "2022", note: "Scenic loops around Chesapeake Bay and historic sites.", albumUrl: "" },
-  "MA": { name: "Massachusetts", visited: true, year: "2022", note: "Exploring Cape Cod loops and historic colonial roads.", albumUrl: "" },
-  "MI": { name: "Michigan", visited: true, year: "2018", note: "Michigan coast, lighthouses & unpaved logging roads in Free Soil.", albumUrl: "" },
-  "MN": { name: "Minnesota", visited: true, year: "2018", note: "Cruising along the scenic North Shore of Lake Superior.", albumUrl: "" },
-  "MS": { name: "Mississippi", visited: true, year: "2019", note: "Riding the historic Natchez Trace Parkway.", albumUrl: "" },
-  "MO": { name: "Missouri", visited: true, year: "2019", note: "Exploring the winding roads of the Ozarks and Route 66 landmarks.", albumUrl: "" },
-  "MT": { name: "Montana", visited: true, year: "2021", note: "Riding the Going-to-the-Sun Road in Glacier National Park.", albumUrl: "" },
-  "NE": { name: "Nebraska", visited: true, year: "2020", note: "Following the historic Platte River valley trails westward.", albumUrl: "" },
-  "NV": { name: "Nevada", visited: true, year: "2021", note: "Crossing the vast, desolate stretches of the Loneliest Road in America.", albumUrl: "" },
-  "NH": { name: "New Hampshire", visited: true, year: "2022", note: "Carving through the White Mountains and the Kancamagus Highway.", albumUrl: "" },
-  "NJ": { name: "New Jersey", visited: true, year: "2022", note: "Scenic coastal rides along the Delaware Water Gap.", albumUrl: "" },
-  "NM": { name: "New Mexico", visited: true, year: "2020", note: "Exploring red rock mesas, high deserts, and adobe villages.", albumUrl: "" },
-  "NY": { name: "New York", visited: true, year: "2022", note: "Cruising upstate mountain routes, the Adirondacks, and Hudson Valley.", albumUrl: "" },
-  "NC": { name: "North Carolina", visited: true, year: "2019", note: "Riding the breathtaking heights of the Blue Ridge Parkway.", albumUrl: "" },
-  "ND": { name: "North Dakota", visited: true, year: "2021", note: "Exploring the rugged beauty of the Theodore Roosevelt Badlands.", albumUrl: "" },
-  "OH": { name: "Ohio", visited: true, year: "2018", note: "Winding state routes through the scenic Hocking Hills.", albumUrl: "" },
-  "OK": { name: "Oklahoma", visited: true, year: "2020", note: "Tracing the classic red dirt stretches of historic Route 66.", albumUrl: "" },
-  "OR": { name: "Oregon", visited: true, year: "2021", note: "Winding coastal cliffs, towering pines, and Columbia River Gorge views.", albumUrl: "" },
-  "PA": { name: "Pennsylvania", visited: true, year: "2022", note: "Crossing historic covered bridges and Allegheny forest routes.", albumUrl: "" },
-  "RI": { name: "Rhode Island", visited: true, year: "2022", note: "Coastal loops through historic Newport and Narragansett Bay.", albumUrl: "" },
-  "SC": { name: "South Carolina", visited: true, year: "2019", note: "Warm Southern breeze along the Atlantic coastal marshes.", albumUrl: "" },
-  "SD": { name: "South Dakota", visited: true, year: "2021", note: "Riding Badlands loops, Iron Mountain Road, and the Black Hills.", albumUrl: "" },
-  "TN": { name: "Tennessee", visited: true, year: "2019", note: "Cruising the Great Smoky Mountains and winding valley roads.", albumUrl: "" },
-  "TX": { name: "Texas", visited: true, year: "2020", note: "Cruising the massive, open expanses of West Texas and Hill Country.", albumUrl: "" },
-  "UT": { name: "Utah", visited: true, year: "2020", note: "Carving through the dramatic red rock canyons of Zion and Bryce.", albumUrl: "" },
-  "VT": { name: "Vermont", visited: true, year: "2022", note: "Riding green valleys, gap roads, and seeing autumn foliage colors.", albumUrl: "" },
-  "VA": { name: "Virginia", visited: true, year: "2019", note: "Cruising the Blue Ridge Parkway and Skyline Drive summits.", albumUrl: "" },
-  "WA": { name: "Washington", visited: true, year: "2021", note: "Exploring the Olympic Peninsula loop and misty rainforest routes.", albumUrl: "" },
-  "WV": { name: "West Virginia", visited: true, year: "2019", note: "Carving the tight, challenging curves of the Appalachian mountains.", albumUrl: "" },
-  "WI": { name: "Wisconsin", visited: true, year: "2018", note: "Exploring the quiet, scenic roads along the Door County Peninsula.", albumUrl: "" },
-  "WY": { name: "Wyoming", visited: true, year: "2021", note: "Grand Teton passes, Yellowstone hot springs, and high plains.", albumUrl: "" },
-  "DC": { name: "Washington D.C.", visited: true, year: "2022", note: "Riding around the historic national malls and monument circles.", albumUrl: "" }
+  "AL": { name: "Alabama", visited: true, visits: [{ year: "2019", note: "Riding through the heart of the South, exploring historic routes.", albumUrl: "" }] },
+  "AK": { name: "Alaska", visited: false, visits: [] },
+  "AZ": { name: "Arizona", visited: true, visits: [{ year: "2020", note: "Cruising the desert highways and canyons under dramatic skies.", albumUrl: "" }] },
+  "AR": { name: "Arkansas", visited: true, visits: [{ year: "2019", note: "Riding the winding mountain curves of the Ozarks.", albumUrl: "" }] },
+  "CA": { name: "California", visited: true, visits: [{ year: "2021", note: "Riding the iconic twists of the Pacific Coast Highway.", albumUrl: "" }] },
+  "CO": { name: "Colorado", visited: true, visits: [{ year: "2020", note: "Tackling high-altitude mountain passes and Rockies views.", albumUrl: "" }] },
+  "CT": { name: "Connecticut", visited: true, visits: [{ year: "2022", note: "Cruising through beautiful New England historic towns.", albumUrl: "" }] },
+  "DE": { name: "Delaware", visited: true, visits: [{ year: "2022", note: "Scenic coastal rides along the Delaware Bay.", albumUrl: "" }] },
+  "FL": { name: "Florida", visited: true, visits: [{ year: "2019", note: "Cruising along the Overseas Highway through the Florida Keys.", albumUrl: "" }] },
+  "GA": { name: "Georgia", visited: true, visits: [{ year: "2019", note: "Exploring historic roads, Spanish moss, and Southern paths.", albumUrl: "" }] },
+  "HI": { name: "Hawaii", visited: true, visits: [{ year: "2023", note: "Exploring the volcanic coastlines and tropical routes of the islands.", albumUrl: "" }] },
+  "ID": { name: "Idaho", visited: true, visits: [{ year: "2021", note: "Riding through rugged river canyons and forest routes.", albumUrl: "" }] },
+  "IL": { name: "Illinois", visited: true, visits: [{ year: "2018", note: "Starting journeys along the classic Route 66 corridors.", albumUrl: "" }] },
+  "IN": { name: "Indiana", visited: true, visits: [{ year: "2018", note: "Scenic rides through Midwest farmlands and state forests.", albumUrl: "" }] },
+  "IA": { name: "Iowa", visited: true, visits: [{ year: "2018", note: "Cruising the rolling hills and crossing the Mississippi River routes.", albumUrl: "" }] },
+  "KS": { name: "Kansas", visited: true, visits: [{ year: "2020", note: "Expansive horizons and endless open skies along the plains.", albumUrl: "" }] },
+  "KY": { name: "Kentucky", visited: true, visits: [{ year: "2019", note: "Riding through beautiful horse country and rolling bluegrass hills.", albumUrl: "" }] },
+  "LA": { name: "Louisiana", visited: true, visits: [{ year: "2019", note: "Cruising bayou routes and exploring unique Cajun country roads.", albumUrl: "" }] },
+  "ME": { name: "Maine", visited: true, visits: [{ year: "2022", note: "Lighthouses, rocky shores, and Acadia coastal highways.", albumUrl: "" }] },
+  "MD": { name: "Maryland", visited: true, visits: [{ year: "2022", note: "Scenic loops around Chesapeake Bay and historic sites.", albumUrl: "" }] },
+  "MA": { name: "Massachusetts", visited: true, visits: [{ year: "2022", note: "Exploring Cape Cod loops and historic colonial roads.", albumUrl: "" }] },
+  "MI": { name: "Michigan", visited: true, visits: [{ year: "2018", note: "Michigan coast, lighthouses & unpaved logging roads in Free Soil.", albumUrl: "" }] },
+  "MN": { name: "Minnesota", visited: true, visits: [{ year: "2018", note: "Cruising along the scenic North Shore of Lake Superior.", albumUrl: "" }] },
+  "MS": { name: "Mississippi", visited: true, visits: [{ year: "2019", note: "Riding the historic Natchez Trace Parkway.", albumUrl: "" }] },
+  "MO": { name: "Missouri", visited: true, visits: [{ year: "2019", note: "Exploring the winding roads of the Ozarks and Route 66 landmarks.", albumUrl: "" }] },
+  "MT": { name: "Montana", visited: true, visits: [{ year: "2021", note: "Riding the Going-to-the-Sun Road in Glacier National Park.", albumUrl: "" }] },
+  "NE": { name: "Nebraska", visited: true, visits: [{ year: "2020", note: "Following the historic Platte River valley trails westward.", albumUrl: "" }] },
+  "NV": { name: "Nevada", visited: true, visits: [{ year: "2021", note: "Crossing the vast, desolate stretches of the Loneliest Road in America.", albumUrl: "" }] },
+  "NH": { name: "New Hampshire", visited: true, visits: [{ year: "2022", note: "Carving through the White Mountains and the Kancamagus Highway.", albumUrl: "" }] },
+  "NJ": { name: "New Jersey", visited: true, visits: [{ year: "2022", note: "Scenic coastal rides along the Delaware Water Gap.", albumUrl: "" }] },
+  "NM": { name: "New Mexico", visited: true, visits: [{ year: "2020", note: "Exploring red rock mesas, high deserts, and adobe villages.", albumUrl: "" }] },
+  "NY": { name: "New York", visited: true, visits: [{ year: "2022", note: "Cruising upstate mountain routes, the Adirondacks, and Hudson Valley.", albumUrl: "" }] },
+  "NC": { name: "North Carolina", visited: true, visits: [{ year: "2019", note: "Riding the breathtaking heights of the Blue Ridge Parkway.", albumUrl: "" }] },
+  "ND": { name: "North Dakota", visited: true, visits: [{ year: "2021", note: "Exploring the rugged beauty of the Theodore Roosevelt Badlands.", albumUrl: "" }] },
+  "OH": { name: "Ohio", visited: true, visits: [{ year: "2018", note: "Winding state routes through the scenic Hocking Hills.", albumUrl: "" }] },
+  "OK": { name: "Oklahoma", visited: true, visits: [{ year: "2020", note: "Tracing the classic red dirt stretches of historic Route 66.", albumUrl: "" }] },
+  "OR": { name: "Oregon", visited: true, visits: [{ year: "2021", note: "Winding coastal cliffs, towering pines, and Columbia River Gorge views.", albumUrl: "" }] },
+  "PA": { name: "Pennsylvania", visited: true, visits: [{ year: "2022", note: "Crossing historic covered bridges and Allegheny forest routes.", albumUrl: "" }] },
+  "RI": { name: "Rhode Island", visited: true, visits: [{ year: "2022", note: "Coastal loops through historic Newport and Narragansett Bay.", albumUrl: "" }] },
+  "SC": { name: "South Carolina", visited: true, visits: [{ year: "2019", note: "Warm Southern breeze along the Atlantic coastal marshes.", albumUrl: "" }] },
+  "SD": { name: "South Dakota", visited: true, visits: [{ year: "2021", note: "Riding Badlands loops, Iron Mountain Road, and the Black Hills.", albumUrl: "" }] },
+  "TN": { name: "Tennessee", visited: true, visits: [{ year: "2019", note: "Cruising the Great Smoky Mountains and winding valley roads.", albumUrl: "" }] },
+  "TX": { name: "Texas", visited: true, visits: [{ year: "2020", note: "Cruising the massive, open expanses of West Texas and Hill Country.", albumUrl: "" }] },
+  "UT": { name: "Utah", visited: true, visits: [{ year: "2020", note: "Carving through the dramatic red rock canyons of Zion and Bryce.", albumUrl: "" }] },
+  "VT": { name: "Vermont", visited: true, visits: [{ year: "2022", note: "Riding green valleys, gap roads, and seeing autumn foliage colors.", albumUrl: "" }] },
+  "VA": { name: "Virginia", visited: true, visits: [{ year: "2019", note: "Cruising the Blue Ridge Parkway and Skyline Drive summits.", albumUrl: "" }] },
+  "WA": { name: "Washington", visited: true, visits: [{ year: "2021", note: "Exploring the Olympic Peninsula loop and misty rainforest routes.", albumUrl: "" }] },
+  "WV": { name: "West Virginia", visited: true, visits: [{ year: "2019", note: "Carving the tight, challenging curves of the Appalachian mountains.", albumUrl: "" }] },
+  "WI": { name: "Wisconsin", visited: true, visits: [{ year: "2018", note: "Exploring the quiet, scenic roads along the Door County Peninsula.", albumUrl: "" }] },
+  "WY": { name: "Wyoming", visited: true, visits: [{ year: "2021", note: "Grand Teton passes, Yellowstone hot springs, and high plains.", albumUrl: "" }] },
+  "DC": { name: "Washington D.C.", visited: true, visits: [{ year: "2022", note: "Riding around the historic national malls and monument circles.", albumUrl: "" }] }
 };
+
+// Custom Travel Journeys (India, historic runs, etc.) to merge into the main timeline
+const customTrips = [
+  { name: "Freedom Ride", location: "Rameswaram & Tuticorin, India", year: "2014", note: "ECR coastal sprint to Rama Sethu, sleeping on milestone benches at 3 AM.", tag: "Freedom" },
+  { name: "Agumbe Rain Forest", location: "Agumbe, India", year: "2014", note: "Riding the famous hairpin bends and rain-soaked ghats of Western India.", tag: "Agumbe" },
+  { name: "Exotic Kerala", location: "Kerala, India", year: "2014", note: "Riding through backwaters, tea gardens, and tropical coastlines.", tag: "Kerala" },
+  { name: "Varanasi & Bodh Gaya", location: "Varanasi, India", year: "2016", note: "Exploring the spiritual ghats and finding serene enlightenment in Bodh Gaya.", tag: "India" }
+];
 
 // Initialize Application on Page Load
 document.addEventListener('DOMContentLoaded', () => {
@@ -73,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchArticles();
   setupScrollObserver();
   setupMapInteraction();
+  renderDynamicTimeline();
 });
 
 // 1. Scroll Event to Add Glassmorphic Styling to Navbar
@@ -454,7 +463,12 @@ function setupMapInteraction() {
     // 2. Mouseover Tooltip Trigger
     path.addEventListener('mouseover', (e) => {
       if (info) {
-        tooltip.innerHTML = `<strong>${info.name}</strong><br>${info.visited ? `Visited (${info.year})` : 'To Explore'}`;
+        let visitText = 'To Explore';
+        if (info.visited && info.visits && info.visits.length > 0) {
+          const years = info.visits.map(v => v.year).join(', ');
+          visitText = `Visited (${years})`;
+        }
+        tooltip.innerHTML = `<strong>${info.name}</strong><br>${visitText}`;
         tooltip.style.opacity = '1';
       }
     });
@@ -483,33 +497,49 @@ function setupMapInteraction() {
 }
 
 // 15. Open State Detail Modal with linked Google Photos & Substack Articles
+// 15. Open State Detail Modal with linked Google Photos & Substack Articles
 function openStateModal(stateId) {
   const modal = document.getElementById('stateModal');
-  const meta = document.getElementById('modalStateMeta');
   const title = document.getElementById('modalStateTitle');
-  const notes = document.getElementById('modalStateNotes');
+  const visitsContainer = document.getElementById('modalVisitsContainer');
   const substackSection = document.getElementById('modalSubstackSection');
   const linksContainer = document.getElementById('modalSubstackLinks');
-  const albumBtn = document.getElementById('modalAlbumBtn');
   
   const info = travelHistory[stateId];
   if (!info || !modal) return;
   
-  // Populate basic metadata
-  meta.textContent = `Visited in ${info.year}`;
+  // Set modal title
   title.textContent = info.name;
-  notes.textContent = info.note;
   
-  // Configure Google Photos album CTA
-  if (info.albumUrl && info.albumUrl.trim().length > 0) {
-    albumBtn.href = info.albumUrl;
-    albumBtn.style.display = 'flex';
+  // Render visits list dynamically
+  visitsContainer.innerHTML = '';
+  if (info.visits && info.visits.length > 0) {
+    info.visits.forEach(visit => {
+      const card = document.createElement('div');
+      card.className = 'visit-log-card';
+      
+      // Determine Photo Album URL or Fallback
+      let albumUrl = visit.albumUrl || '';
+      let btnText = 'View Photo Album';
+      if (!albumUrl || albumUrl.trim().length === 0) {
+        albumUrl = `https://photos.google.com/search/${encodeURIComponent(info.name + ' ' + visit.year)}`;
+        btnText = `Search Photos (${visit.year})`;
+      }
+      
+      card.innerHTML = `
+        <div class="visit-log-header">
+          <span class="visit-year">${visit.year}</span>
+          <a href="${albumUrl}" target="_blank" rel="noopener" class="visit-album-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            <span>${btnText}</span>
+          </a>
+        </div>
+        <p class="visit-note">${visit.note}</p>
+      `;
+      visitsContainer.appendChild(card);
+    });
   } else {
-    // Elegant fallback: Search Google Photos search engine or link generally
-    albumBtn.href = `https://photos.google.com/search/${encodeURIComponent(info.name)}`;
-    albumBtn.style.display = 'flex';
-    // Optionally change button text to reflect search
-    albumBtn.querySelector('span').textContent = `Search Photos of ${info.name}`;
+    visitsContainer.innerHTML = `<p style="color: var(--text-muted); font-size: 0.9rem;">No visits recorded yet.</p>`;
   }
   
   // Search for matching Substack articles in local state
@@ -556,5 +586,105 @@ function closeStateModal(event) {
   } else if (event && event.target === modal) {
     modal.classList.remove('open');
   }
+}
+
+// 17. Scroll to map and open state modal
+function scrollToMapAndOpenModal(stateId) {
+  const mapSection = document.getElementById('map');
+  if (mapSection) {
+    mapSection.scrollIntoView({ behavior: 'smooth' });
+    // Wait for smooth scroll to finish before opening modal
+    setTimeout(() => {
+      openStateModal(stateId);
+    }, 600);
+  }
+}
+
+// 18. Generate and render Travel Highlights Timeline dynamically
+function renderDynamicTimeline() {
+  const timelineContainer = document.getElementById('dynamicTimeline');
+  if (!timelineContainer) return;
+  
+  // Clear existing nodes except connecting line
+  const existingNodes = timelineContainer.querySelectorAll('.timeline-node');
+  existingNodes.forEach(node => node.remove());
+  
+  const events = [];
+  
+  // Gather US visits
+  Object.keys(travelHistory).forEach(stateId => {
+    const info = travelHistory[stateId];
+    if (info.visited && info.visits) {
+      info.visits.forEach(visit => {
+        events.push({
+          type: 'state',
+          stateCode: stateId,
+          name: info.name,
+          year: parseInt(visit.year) || 0,
+          yearStr: visit.year,
+          note: visit.note,
+          tag: info.name
+        });
+      });
+    }
+  });
+  
+  // Gather Custom visits
+  customTrips.forEach(trip => {
+    events.push({
+      type: 'custom',
+      name: trip.name,
+      location: trip.location,
+      year: parseInt(trip.year) || 0,
+      yearStr: trip.year,
+      note: trip.note,
+      tag: trip.tag
+    });
+  });
+  
+  // Sort oldest to newest
+  events.sort((a, b) => a.year - b.year);
+  
+  // Generate and append cards
+  events.forEach(event => {
+    const node = document.createElement('div');
+    node.className = 'timeline-node';
+    
+    let metaText = '';
+    let titleText = '';
+    let descText = '';
+    let clickHandler = '';
+    
+    if (event.type === 'state') {
+      metaText = `USA Travel • ${event.yearStr}`;
+      titleText = event.name;
+      descText = event.note;
+      node.setAttribute('data-state', event.stateCode);
+      // Double escaping quotes in handler
+      node.addEventListener('click', () => {
+        scrollToMapAndOpenModal(event.stateCode);
+      });
+    } else {
+      metaText = `${event.location} • ${event.yearStr}`;
+      titleText = event.name;
+      descText = event.note;
+      node.setAttribute('data-tag', event.tag);
+      node.addEventListener('click', () => {
+        filterByTimelineTag(event.tag);
+      });
+    }
+    
+    node.innerHTML = `
+      <div class="node-dot"></div>
+      <div class="node-card">
+        <span class="node-meta">${metaText}</span>
+        <h3 class="node-title">${titleText}</h3>
+        <p class="node-desc">${descText}</p>
+        <span class="node-link">${event.type === 'state' ? 'View details & map &rarr;' : 'Filter articles &rarr;'}</span>
+      </div>
+    `;
+    
+    timelineContainer.appendChild(node);
+  });
 }
 
