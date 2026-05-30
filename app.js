@@ -69,7 +69,7 @@ const travelHistory = {
 
   // India States & Union Territories
   "an": { name: "Andaman and Nicobar Islands", visited: false, visits: [] },
-  "ap": { name: "Andhra Pradesh", visited: false, visits: [] },
+  "ap": { name: "Andhra Pradesh", visited: true, visits: [{ year: "2014", note: "Riding through historic paths and coastal regions of Andhra Pradesh.", albumUrl: "" }] },
   "ar": { name: "Arunachal Pradesh", visited: false, visits: [] },
   "as": { name: "Assam", visited: false, visits: [] },
   "br": { name: "Bihar", visited: true, visits: [{ year: "2016", note: "Finding serene enlightenment under the Bodhi tree in Bodh Gaya.", albumUrl: "" }] },
@@ -78,10 +78,10 @@ const travelHistory = {
   "dn": { name: "Dadra and Nagar Haveli", visited: false, visits: [] },
   "dd": { name: "Daman and Diu", visited: false, visits: [] },
   "dl": { name: "Delhi", visited: false, visits: [] },
-  "ga": { name: "Goa", visited: false, visits: [] },
+  "ga": { name: "Goa", visited: true, visits: [{ year: "2014", note: "Exploring the scenic coastal highways and golden sands of Goa (May 2014).", albumUrl: "" }] },
   "gj": { name: "Gujarat", visited: false, visits: [] },
   "hr": { name: "Haryana", visited: false, visits: [] },
-  "hp": { name: "Himachal Pradesh", visited: false, visits: [] },
+  "hp": { name: "Himachal Pradesh", visited: true, visits: [{ year: "2016", note: "Riding through the towering valleys and majestic mountain passes of the Himalayas (May 2016).", albumUrl: "" }] },
   "jk": { name: "Jammu and Kashmir", visited: false, visits: [] },
   "jh": { name: "Jharkhand", visited: false, visits: [] },
   "ka": { name: "Karnataka", visited: true, visits: [{ year: "2014", note: "Riding the famous hairpin bends and rain-soaked ghats of Western India.", albumUrl: "" }] },
@@ -95,14 +95,14 @@ const travelHistory = {
   "nl": { name: "Nagaland", visited: false, visits: [] },
   "or": { name: "Odisha", visited: false, visits: [] },
   "py": { name: "Puducherry", visited: false, visits: [] },
-  "pb": { name: "Punjab", visited: false, visits: [] },
+  "pb": { name: "Punjab", visited: true, visits: [{ year: "2016", note: "Exploring the rich farmlands and historic towns of Punjab.", albumUrl: "" }] },
   "rj": { name: "Rajasthan", visited: false, visits: [] },
   "sk": { name: "Sikkim", visited: false, visits: [] },
   "tn": { name: "Tamil Nadu", visited: true, visits: [{ year: "2014", note: "ECR coastal sprint to Rama Sethu, sleeping on milestone benches at 3 AM.", albumUrl: "" }] },
-  "tg": { name: "Telangana", visited: false, visits: [] },
+  "tg": { name: "Telangana", visited: true, visits: [{ year: "2014", note: "Exploring Hyderabad and the Deccan plateau routes.", albumUrl: "" }] },
   "tr": { name: "Tripura", visited: false, visits: [] },
   "up": { name: "Uttar Pradesh", visited: true, visits: [{ year: "2016", note: "Exploring the spiritual ghats of Varanasi along the Ganges.", albumUrl: "" }] },
-  "ut": { name: "Uttarakhand", visited: false, visits: [] },
+  "ut": { name: "Uttarakhand", visited: true, visits: [{ year: "2016", note: "Riding winding routes through the sacred valleys of the Garhwal Himalayas.", albumUrl: "" }] },
   "wb": { name: "West Bengal", visited: false, visits: [] }
 };
 
